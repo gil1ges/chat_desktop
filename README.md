@@ -19,6 +19,13 @@
 - `pip`;
 - системные зависимости, необходимые для `PySide6`/`Qt WebEngine` (обычно ставятся автоматически через пакетный менеджер и `pip`).
 
+## Клонирование
+
+```bash
+git clone https://github.com/gil1ges/chat_desktop.git
+cd chat_desktop
+```
+
 ## Установка и запуск
 
 ```bash
