@@ -55,7 +55,6 @@ class TitleBar(QFrame):
         super().__init__(window)
         self._window = window
         self._drag_start = QPoint()
-        self._press_pos = QPoint()
         self.setObjectName("titleBar")
 
         layout = QHBoxLayout(self)
@@ -95,21 +94,28 @@ class TitleBar(QFrame):
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
-            self._press_pos = event.position().toPoint()
-            self._drag_start = event.globalPosition().toPoint() - self._window.frameGeometry().topLeft()
+            global_pos = event.globalPosition().toPoint()
+            press_pos = event.position().toPoint()
+
+            if self._window.isMaximized():
+                ratio_x = press_pos.x() / max(1, self.width())
+                self._window.showNormal()
+                normal_width = self._window.frameGeometry().width()
+                anchor_x = int(normal_width * ratio_x)
+                self._window.move(global_pos.x() - anchor_x, global_pos.y() - press_pos.y())
+
+            window_handle = self._window.windowHandle()
+            if window_handle is not None and window_handle.startSystemMove():
+                event.accept()
+                return
+
+            self._drag_start = global_pos - self._window.frameGeometry().topLeft()
             event.accept()
 
     def mouseMoveEvent(self, event):
         if event.buttons() & Qt.LeftButton:
-            global_pos = event.globalPosition().toPoint()
-            if self._window.isMaximized():
-                ratio_x = self._press_pos.x() / max(1, self.width())
-                self._window.showNormal()
-                normal_width = self._window.frameGeometry().width()
-                anchor_x = int(normal_width * ratio_x)
-                self._window.move(global_pos.x() - anchor_x, global_pos.y() - self._press_pos.y())
-                self._drag_start = global_pos - self._window.frameGeometry().topLeft()
-            self._window.move(global_pos - self._drag_start)
+            # Fallback for platforms/window managers where system move is unavailable.
+            self._window.move(event.globalPosition().toPoint() - self._drag_start)
             event.accept()
 
     def mouseDoubleClickEvent(self, event):
