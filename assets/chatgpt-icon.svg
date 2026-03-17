@@ -1,0 +1,19 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="120" fill="#101418"/>
+  <rect x="24" y="24" width="464" height="464" rx="96" fill="url(#bg)" stroke="rgba(255,255,255,0.12)"/>
+  <g transform="translate(256 256)">
+    <path d="M0 -118C26 -118 49 -105 61 -84L117 -52C140 -39 154 -14 154 12C154 39 140 63 117 76L61 108C48 129 26 142 0 142C-26 142 -49 129 -61 108L-117 76C-140 63 -154 39 -154 12C-154 -14 -140 -39 -117 -52L-61 -84C-48 -105 -26 -118 0 -118Z" fill="none" stroke="#ECEFF3" stroke-width="28" stroke-linejoin="round"/>
+    <path d="M0 -118L61 -84V-12L0 24L-61 -12V-84L0 -118Z" fill="none" stroke="#ECEFF3" stroke-width="28" stroke-linejoin="round"/>
+    <path d="M117 -52V24L61 56L0 24V-52L61 -84L117 -52Z" fill="none" stroke="#ECEFF3" stroke-width="28" stroke-linejoin="round"/>
+    <path d="M117 76L61 108L0 76V24L61 -12L117 24V76Z" fill="none" stroke="#ECEFF3" stroke-width="28" stroke-linejoin="round"/>
+    <path d="M0 142L-61 108V56L0 24L61 56V108L0 142Z" fill="none" stroke="#ECEFF3" stroke-width="28" stroke-linejoin="round"/>
+    <path d="M-117 76L-117 24L-61 -12L0 24V76L-61 108L-117 76Z" fill="none" stroke="#ECEFF3" stroke-width="28" stroke-linejoin="round"/>
+    <path d="M-117 -52L-61 -84L0 -52V24L-61 56L-117 24V-52Z" fill="none" stroke="#ECEFF3" stroke-width="28" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="70" y1="48" x2="430" y2="472" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D2A22"/>
+      <stop offset="1" stop-color="#0D1115"/>
+    </linearGradient>
+  </defs>
+</svg>

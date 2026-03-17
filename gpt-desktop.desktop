@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=GPT Desktop
+Comment=Desktop wrapper for ChatGPT
+Exec=/home/viktor/Projects/gpt-desktop/run.sh
+Icon=/home/viktor/Projects/gpt-desktop/assets/chatgpt-icon.svg
+Terminal=false
+Categories=Network;Utility;
+StartupNotify=true
+StartupWMClass=gpt-desktop
